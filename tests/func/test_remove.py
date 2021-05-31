@@ -1,6 +1,5 @@
 import pytest
 
-from dvc.main import main
 from dvc.exceptions import InvalidArgumentError
 
 
