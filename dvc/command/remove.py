@@ -21,8 +21,7 @@ class CmdRemove(CmdBase):
 
 def add_parser(subparsers, parent_parser):
     REMOVE_HELP = (
-        "Remove stages from dvc.yaml and/or"
-        " stop tracking files or directories."
+        "Stop tracking files or directories."
     )
     remove_parser = subparsers.add_parser(
         "remove",
@@ -32,14 +31,8 @@ def add_parser(subparsers, parent_parser):
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     remove_parser.add_argument(
-        "--outs",
-        action="store_true",
-        default=False,
-        help="Remove outputs as well.",
-    )
-    remove_parser.add_argument(
         "targets",
         nargs="+",
-        help=".dvc files or stages from dvc.yaml to remove.",
+        help=".dvc files to stio tracking.",
     ).complete = completion.DVC_FILE
     remove_parser.set_defaults(func=CmdRemove)
