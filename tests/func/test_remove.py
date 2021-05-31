@@ -14,6 +14,7 @@ def test_remove_added_file_as_target(tmp_dir, dvc):
     assert not (tmp_dir / "foo.dvc").exists()
     assert (tmp_dir / "foo").exists()
 
+
 def test_remove_added_file_as_target_with_dvc_suffix(tmp_dir, dvc):
     tmp_dir.gen("foo", "foo")
 
@@ -24,6 +25,7 @@ def test_remove_added_file_as_target_with_dvc_suffix(tmp_dir, dvc):
     assert not (tmp_dir / ".gitignore").exists()
     assert not (tmp_dir / "foo.dvc").exists()
     assert (tmp_dir / "foo").exists()
+
 
 def test_remove_added_dir_as_target(tmp_dir, dvc):
     tmp_dir.gen("foo/file1")

@@ -1,7 +1,6 @@
 import logging
 import typing
 
-
 from dvc.dvcfile import PipelineFile
 from dvc.exceptions import InvalidArgumentError
 
@@ -23,14 +22,18 @@ PARENT_TRACKED_ERROR_MSG = """
 
 
 @locked
-def remove(self: "Repo", target: str,):
+def remove(
+    self: "Repo",
+    target: str,
+):
     stages_info = self.stage.collect_granular(target)
     for stage, filter_info in stages_info:
 
         if isinstance(stage.dvcfile, PipelineFile):
             raise InvalidArgumentError(
                 f"'target': {target} is a stage name."
-                " in order to remove a stage use 'dvc stage remove'")
+                " in order to remove a stage use 'dvc stage remove'"
+            )
 
         if filter_info is not None:
             if stage.outs[0].path_info != filter_info:

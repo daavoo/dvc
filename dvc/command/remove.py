@@ -20,9 +20,7 @@ class CmdRemove(CmdBase):
 
 
 def add_parser(subparsers, parent_parser):
-    REMOVE_HELP = (
-        "Stop tracking files or directories."
-    )
+    REMOVE_HELP = "Stop tracking files or directories."
     remove_parser = subparsers.add_parser(
         "remove",
         parents=[parent_parser],
